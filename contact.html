@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تماس با ما - AriaHost</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
+                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
+                    <i data-lucide="server" class="text-background w-5 h-5"></i>
+                </div>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
+                    Aria<span class="text-primary">Host</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
+                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/contact.html" class="text-sm font-medium text-primary relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
+            </div>
+            <div class="hidden md:block">
+                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
+            </div>
+            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-32">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+            <h1 class="text-5xl font-bold text-white mb-6">تماس با <span class="text-primary">ما</span></h1>
+            <p class="text-xl text-muted-foreground">
+                ما همیشه آماده شنیدن نظرات، پیشنهادات و پاسخگویی به سوالات شما هستیم.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto fade-in-up">
+            <div class="space-y-8">
+                <div class="glass p-8 rounded-2xl border border-white/10">
+                    <h3 class="text-2xl font-bold text-white mb-6">راه‌های ارتباطی</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">آدرس دفتر مرکزی</h4>
+                                <p className="text-muted-foreground">تهران، سعادت‌آباد، بلوار سرو غربی، ساختمان آریا، طبقه ۵</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">تلفن تماس</h4>
+                                <p className="text-muted-foreground" dir="ltr">+98 21 1234 5678</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold mb-1">پست الکترونیک</h4>
+                                <p className="text-muted-foreground">support@ariahost.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-2xl border border-white/10">
+                 <h3 class="text-2xl font-bold text-white mb-6">ارسال پیام</h3>
+                 <form class="space-y-6">
+                     <div class="grid md:grid-cols-2 gap-6">
+                         <div class="space-y-2">
+                             <label class="text-white text-sm font-medium">نام و نام خانوادگی</label>
+                             <input type="text" placeholder="مثال: علی علوی" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                         </div>
+                         <div class="space-y-2">
+                             <label class="text-white text-sm font-medium">ایمیل</label>
+                             <input type="email" placeholder="example@gmail.com" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" dir="ltr">
+                         </div>
+                     </div>
+                     <div class="space-y-2">
+                         <label class="text-white text-sm font-medium">موضوع</label>
+                         <input type="text" placeholder="موضوع پیام" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                     </div>
+                     <div class="space-y-2">
+                         <label class="text-white text-sm font-medium">متن پیام</label>
+                         <textarea placeholder="پیام خود را بنویسید..." class="w-full min-h-[150px] p-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"></textarea>
+                     </div>
+                     <button type="submit" class="w-full h-12 rounded-xl font-bold bg-primary text-background hover:bg-secondary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                         ارسال پیام <i data-lucide="send" class="w-5 h-5"></i>
+                     </button>
+                 </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
