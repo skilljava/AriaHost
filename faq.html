@@ -1,101 +1,189 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>سوالات متداول - AriaHost</title>
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوالات متداول | آریا هاست</title>
+    <meta name="description" content="سوالات پرتکرار کاربران آریا هاست.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css" />
-    <style>
-        .accordion-content {
-            transition: max-height 0.3s ease-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-background text-foreground font-sans antialiased">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
-                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
-                    <i data-lucide="server" class="text-background w-5 h-5"></i>
-                </div>
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
-                    Aria<span class="text-primary">Host</span>
-                </span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-                
-                <!-- Dropdown Menu -->
-                <div class="relative group">
-                    <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
-                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
-                        </a>
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
-                        </a>
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
-                        </a>
-                    </div>
-                </div>
+<body>
+    <div class="background-animation"></div>
 
-                <a href="/faq.html" class="text-sm font-medium text-primary relative group">سوالات متداول <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
-                <a href="/contact.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-            </div>
-            <div class="hidden md:block">
-                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
-            </div>
-            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
-                <i data-lucide="menu"></i>
-            </button>
+    <nav class="navbar glass">
+        <div class="logo-container">
+            <img src="logo.png" alt="AriaHost Logo" class="logo-img">
+            <div class="logo">آریا <span class="highlight">هاست</span></div>
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">خانه</a></li>
+            <li class="dropdown">
+                <a href="services.html">خدمات <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu glass">
+                    <li><a href="#" onclick="filterServices('vps')"><i class="fas fa-server"></i> سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')"><i class="fas fa-gamepad"></i> سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('web')"><i class="fas fa-globe"></i> هاست وب</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')"><i class="fas fa-hdd"></i> سرور اختصاصی</a></li>
+                    <li><a href="#" onclick="filterServices('other')"><i class="fas fa-ellipsis-h"></i> موارد دیگر</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="status.html">وضعیت سرورها</a></li>
+            <li><a href="faq.html" class="active">سوالات متداول</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary glow-effect">شروع کنید</a>
     </nav>
 
-    <div class="container mx-auto px-4 py-32">
-        <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-            <h1 class="text-5xl font-bold text-white mb-6">سوالات <span class="text-primary">متداول</span></h1>
-            <p class="text-xl text-muted-foreground">
-                پاسخ به پرسش‌های پرتکرار شما درباره سرویس‌ها و خدمات آریا هاست
-            </p>
-        </div>
-
-        <div class="max-w-3xl mx-auto space-y-4 fade-in-up">
-            <!-- FAQ Item 1 -->
-            <div class="border border-white/10 rounded-xl bg-white/5 px-6">
-                <button class="accordion-trigger w-full text-lg font-medium text-white hover:text-primary py-6 text-right flex justify-between items-center outline-none cursor-pointer">
-                    آیا امکان ارتقای سرویس در هر زمان وجود دارد؟
-                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                </button>
-                <div class="accordion-content">
-                    <p class="text-muted-foreground leading-relaxed pb-6 text-base">
-                        بله، شما می‌توانید در هر زمان از طریق ناحیه کاربری اقدام به ارتقای سرویس خود نمایید. هزینه مابه‌التفاوت به صورت روزشمار محاسبه خواهد شد.
-                    </p>
+    <main id="content">
+        <section id="faq" class="page">
+            <h2 class="section-title">سوالات متداول</h2>
+            <div class="faq-container fade-in-section">
+                <!-- 1 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>چقدر طول می‌کشد تا سرور تحویل داده شود؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تمامی سرورهای مجازی و هاست‌ها به صورت آنی پس از پرداخت تحویل داده می‌شوند. سرورهای اختصاصی بسته به کانفیگ بین ۱ تا ۲۴ ساعت زمان می‌برند.</p>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>آیا امکان ارتقای سرویس در هر زمانی وجود دارد؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، شما می‌توانید در هر لحظه از شبانه روز از طریق پنل کاربری، منابع سرور خود (رم، سی‌پی‌یو، هارد) را ارتقا دهید. هزینه تنها برای مابه‌التفاوت روزهای باقی‌مانده محاسبه می‌شود.</p>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>تفاوت سرور مجازی ایران و خارج چیست؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>سرورهای ایران برای کاربران داخل کشور سرعت و پینگ بسیار پایین‌تری دارند و ترافیک آن‌ها نیم‌بها محاسبه می‌شود. سرورهای خارج برای دسترسی به سرویس‌های بین‌المللی و دور زدن تحریم‌ها مناسب‌تر هستند.</p>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>آیا گارانتی بازگشت وجه دارید؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، در صورت وجود مشکل فنی در سرویس که تیم پشتیبانی قادر به حل آن نباشد، تا ۷ روز امکان بازگشت کامل وجه وجود دارد.</p>
+                    </div>
+                </div>
+                 <!-- 5 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>پشتیبانی شما چه ساعاتی فعال است؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تیم پشتیبانی فنی آریا هاست به صورت ۲۴ ساعته در ۷ روز هفته (حتی ایام تعطیل) از طریق تیکت، چت آنلاین و تلفن پاسخگوی شماست.</p>
+                    </div>
+                </div>
+                 <!-- 6 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>آیا بکاپ‌گیری انجام می‌شود؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>برای سرویس‌های هاست اشتراکی، بکاپ‌گیری روزانه و هفتگی انجام می‌شود. برای سرورهای مجازی، مسئولیت بکاپ با کاربر است مگر اینکه سرویس بکاپ خودکار را خریداری کرده باشید.</p>
+                    </div>
+                </div>
+                 <!-- 7 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>چه سیستم‌عامل‌هایی قابل نصب است؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>انواع توزیع‌های لینوکس (Ubuntu, CentOS, Debian, AlmaLinux) و ویندوز سرور (2012, 2016, 2019, 2022) به صورت اتوماتیک قابل نصب هستند.</p>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>آیا امکان نصب میکروتیک وجود دارد؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، میکروتیک روی تمامی سرورهای مجازی ما قابل نصب است.</p>
+                    </div>
+                </div>
+                 <!-- 9 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>ترافیک نامحدود واقعا نامحدود است؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، در سرویس‌هایی که با عنوان ترافیک نامحدود فروخته می‌شوند، هیچ سقف حجمی برای دانلود و آپلود وجود ندارد (مصرف منصفانه ۱ به ۱۰ اعمال می‌شود).</p>
+                    </div>
+                </div>
+                 <!-- 10 -->
+                <div class="faq-item glass">
+                    <div class="faq-question">
+                        <h3>آیا سرورها آنتی‌دیداس دارند؟</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بله، تمامی سرورها مجهز به فایروال سخت‌افزاری و لایه امنیتی هستند. سرورهای گیم دارای آنتی‌دیداس تخصصی لایه ۷ هستند.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- FAQ Item 2 -->
-            <div class="border border-white/10 rounded-xl bg-white/5 px-6">
-                <button class="accordion-trigger w-full text-lg font-medium text-white hover:text-primary py-6 text-right flex justify-between items-center outline-none cursor-pointer">
-                    تفاوت هاست وردپرس با هاست لینوکس معمولی چیست؟
-                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                </button>
-                <div class="accordion-content">
-                    <p class="text-muted-foreground leading-relaxed pb-6 text-base">
-                        هاست وردپرس برای سیستم مدیریت محتوای وردپرس بهینه شده است. تنظیمات سرور، کشینگ و منابع سخت‌افزاری به گونه‌ای پیکربندی شده‌اند که بهترین عملکرد را برای سایت‌های وردپرسی فراهم کنند.
-                    </p>
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>آریا هاست</h3>
+                <p>ارائه دهنده برترین خدمات میزبانی وب و سرور با کیفیت جهانی.</p>
+                 <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
+            <div class="footer-section">
+                <h3>لینک‌های مفید</h3>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="services.html">سرویس‌ها</a></li>
+                    <li><a href="status.html">قوانین و مقررات</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خبرنامه</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
         </div>
-    </div>
-    <script type="module" src="/script.js"></script>
+        <div class="copyright">
+            &copy; ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
