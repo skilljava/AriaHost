@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سوالات متداول - AriaHost</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
+                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
+                    <i data-lucide="server" class="text-background w-5 h-5"></i>
+                </div>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
+                    Aria<span class="text-primary">Host</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
+                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/faq.html" class="text-sm font-medium text-primary relative group">سوالات متداول <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
+                <a href="/contact.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+            </div>
+            <div class="hidden md:block">
+                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
+            </div>
+            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-32">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+            <h1 class="text-5xl font-bold text-white mb-6">سوالات <span class="text-primary">متداول</span></h1>
+            <p class="text-xl text-muted-foreground">
+                پاسخ به پرسش‌های پرتکرار شما درباره سرویس‌ها و خدمات آریا هاست
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4 fade-in-up">
+            <!-- FAQ Item 1 -->
+            <div class="border border-white/10 rounded-xl bg-white/5 px-6">
+                <button class="accordion-trigger w-full text-lg font-medium text-white hover:text-primary py-6 text-right flex justify-between items-center outline-none cursor-pointer">
+                    آیا امکان ارتقای سرویس در هر زمان وجود دارد؟
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-muted-foreground leading-relaxed pb-6 text-base">
+                        بله، شما می‌توانید در هر زمان از طریق ناحیه کاربری اقدام به ارتقای سرویس خود نمایید. هزینه مابه‌التفاوت به صورت روزشمار محاسبه خواهد شد.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="border border-white/10 rounded-xl bg-white/5 px-6">
+                <button class="accordion-trigger w-full text-lg font-medium text-white hover:text-primary py-6 text-right flex justify-between items-center outline-none cursor-pointer">
+                    تفاوت هاست وردپرس با هاست لینوکس معمولی چیست؟
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </button>
+                <div class="accordion-content">
+                    <p class="text-muted-foreground leading-relaxed pb-6 text-base">
+                        هاست وردپرس برای سیستم مدیریت محتوای وردپرس بهینه شده است. تنظیمات سرور، کشینگ و منابع سخت‌افزاری به گونه‌ای پیکربندی شده‌اند که بهترین عملکرد را برای سایت‌های وردپرسی فراهم کنند.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
