@@ -1,129 +1,148 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تماس با ما - AriaHost</title>
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | آریا هاست</title>
+    <meta name="description" content="ارتباط با تیم پشتیبانی و فروش آریا هاست.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-background text-foreground font-sans antialiased">
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
-                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
-                    <i data-lucide="server" class="text-background w-5 h-5"></i>
-                </div>
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
-                    Aria<span class="text-primary">Host</span>
-                </span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-                
-                <!-- Dropdown Menu -->
-                <div class="relative group">
-                    <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
-                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
-                        </a>
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
-                        </a>
-                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
-                        </a>
-                    </div>
-                </div>
+<body>
+    <div class="background-animation"></div>
 
-                <a href="/contact.html" class="text-sm font-medium text-primary relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
-            </div>
-            <div class="hidden md:block">
-                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
-            </div>
-            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
-                <i data-lucide="menu"></i>
-            </button>
+    <nav class="navbar glass">
+        <div class="logo-container">
+            <img src="logo.png" alt="AriaHost Logo" class="logo-img">
+            <div class="logo">آریا <span class="highlight">هاست</span></div>
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">خانه</a></li>
+            <li class="dropdown">
+                <a href="services.html">خدمات <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu glass">
+                   <li><a href="#" onclick="filterServices('vps')"><i class="fas fa-server"></i> سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')"><i class="fas fa-gamepad"></i> سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('web')"><i class="fas fa-globe"></i> هاست وب</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')"><i class="fas fa-hdd"></i> سرور اختصاصی</a></li>
+                    <li><a href="#" onclick="filterServices('other')"><i class="fas fa-ellipsis-h"></i> موارد دیگر</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="status.html">وضعیت سرورها</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="contact.html" class="active">تماس با ما</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary glow-effect">شروع کنید</a>
     </nav>
 
-    <div class="container mx-auto px-4 py-32">
-        <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-            <h1 class="text-5xl font-bold text-white mb-6">تماس با <span class="text-primary">ما</span></h1>
-            <p class="text-xl text-muted-foreground">
-                ما همیشه آماده شنیدن نظرات، پیشنهادات و پاسخگویی به سوالات شما هستیم.
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto fade-in-up">
-            <div class="space-y-8">
-                <div class="glass p-8 rounded-2xl border border-white/10">
-                    <h3 class="text-2xl font-bold text-white mb-6">راه‌های ارتباطی</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                                <i data-lucide="map-pin"></i>
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold mb-1">آدرس دفتر مرکزی</h4>
-                                <p className="text-muted-foreground">تهران، سعادت‌آباد، بلوار سرو غربی، ساختمان آریا، طبقه ۵</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                                <i data-lucide="phone"></i>
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold mb-1">تلفن تماس</h4>
-                                <p className="text-muted-foreground" dir="ltr">+98 21 1234 5678</p>
-                            </div>
-                        </div>
-                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
-                                <i data-lucide="mail"></i>
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold mb-1">پست الکترونیک</h4>
-                                <p className="text-muted-foreground">support@ariahost.com</p>
-                            </div>
+    <main id="content">
+        <section id="contact" class="page">
+            <h2 class="section-title">تماس با ما</h2>
+            <div class="contact-container glass fade-in-section">
+                <div class="contact-info">
+                    <h3>راه‌های ارتباطی</h3>
+                    <p class="text-muted" style="margin-bottom: 2rem;">برای مشاوره رایگان قبل از خرید یا حل مشکلات فنی، از راه‌های زیر با ما در ارتباط باشید.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>آدرس دفتر مرکزی</h4>
+                            <p>تهران، خیابان ولیعصر، بالاتر از پارک ساعی، برج فناوری، طبقه ۱۰، واحد ۴</p>
                         </div>
                     </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                         <div>
+                            <h4>تلفن تماس</h4>
+                            <p>۰۲۱-۹۱۰۰۱۲۳۴ (خط ویژه)</p>
+                            <p>۰۹۱۲-۳۴۵۶۷۸۹ (امور ضروری)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                         <div>
+                            <h4>پست الکترونیک</h4>
+                            <p>sales@ariahost.com (فروش)</p>
+                            <p>support@ariahost.com (پشتیبانی)</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="نام و نام خانوادگی" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="ایمیل شما" required>
+                    </div>
+                    <div class="input-group">
+                        <select>
+                            <option value="" disabled selected>موضوع پیام</option>
+                            <option>مشاوره خرید</option>
+                            <option>پشتیبانی فنی</option>
+                            <option>گزارش تخلف</option>
+                            <option>همکاری با ما</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <textarea placeholder="متن پیام شما..." rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary glow-effect">ارسال پیام <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>آریا هاست</h3>
+                <p>ارائه دهنده برترین خدمات میزبانی وب و سرور با کیفیت جهانی.</p>
+                 <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-
-            <div class="glass p-8 rounded-2xl border border-white/10">
-                 <h3 class="text-2xl font-bold text-white mb-6">ارسال پیام</h3>
-                 <form class="space-y-6">
-                     <div class="grid md:grid-cols-2 gap-6">
-                         <div class="space-y-2">
-                             <label class="text-white text-sm font-medium">نام و نام خانوادگی</label>
-                             <input type="text" placeholder="مثال: علی علوی" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                         </div>
-                         <div class="space-y-2">
-                             <label class="text-white text-sm font-medium">ایمیل</label>
-                             <input type="email" placeholder="example@gmail.com" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" dir="ltr">
-                         </div>
-                     </div>
-                     <div class="space-y-2">
-                         <label class="text-white text-sm font-medium">موضوع</label>
-                         <input type="text" placeholder="موضوع پیام" class="w-full h-10 px-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
-                     </div>
-                     <div class="space-y-2">
-                         <label class="text-white text-sm font-medium">متن پیام</label>
-                         <textarea placeholder="پیام خود را بنویسید..." class="w-full min-h-[150px] p-3 rounded-md bg-white/5 border border-white/10 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"></textarea>
-                     </div>
-                     <button type="submit" class="w-full h-12 rounded-xl font-bold bg-primary text-background hover:bg-secondary transition-all flex items-center justify-center gap-2 cursor-pointer">
-                         ارسال پیام <i data-lucide="send" class="w-5 h-5"></i>
-                     </button>
-                 </form>
+            <div class="footer-section">
+                <h3>لینک‌های مفید</h3>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="services.html">سرویس‌ها</a></li>
+                    <li><a href="status.html">قوانین و مقررات</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خبرنامه</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
-    </div>
-    <script type="module" src="/script.js"></script>
+        <div class="copyright">
+            &copy; ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
