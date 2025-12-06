@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سرویس‌ها - AriaHost</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
+                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
+                    <i data-lucide="server" class="text-background w-5 h-5"></i>
+                </div>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
+                    Aria<span class="text-primary">Host</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="/services.html" class="text-sm font-medium text-primary flex items-center gap-1 py-4">
+                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
+                        <a href="#vps" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
+                        </a>
+                        <a href="#game" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
+                        </a>
+                        <a href="#other" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">بلاگ <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                <a href="/status.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">وضعیت سرورها <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                <a href="/faq.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">سوالات متداول <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                <a href="/contact.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+            </div>
+            <div class="hidden md:block">
+                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
+            </div>
+            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="/" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">خانه</a>
+                <a href="/services.html" class="text-lg font-medium py-2 border-b border-white/5 text-primary">سرویس‌ها</a>
+                <a href="/blog.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">بلاگ</a>
+                <a href="/status.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">وضعیت سرورها</a>
+                <a href="/faq.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">سوالات متداول</a>
+                <a href="/contact.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">تماس با ما</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-32">
+        <div class="text-center max-w-3xl mx-auto mb-20 fade-in-up">
+            <h1 class="text-5xl font-bold text-white mb-6">سرویس‌های <span class="text-primary">میزبانی</span></h1>
+            <p class="text-xl text-muted-foreground">
+                پلن‌های متنوع برای هر نوع نیاز و بودجه. کیفیت و سرعت را با هم تجربه کنید.
+            </p>
+        </div>
+
+        <div class="space-y-32">
+            
+            <!-- VPS Section -->
+            <div id="vps">
+                <div class="flex items-center gap-4 mb-12 border-b border-white/10 pb-6 fade-in-up">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">سرور مجازی (VPS)</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Respina -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="cloud" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور ابری رسپینا XT</h3>
+                        <p class="text-sm text-muted-foreground mb-4">سرور ابری با اتصال مستقیم ایران</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۵۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 4 Core Intel Xeon</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 8 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <!-- FanAva -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="server" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور هایپر فن‌آوا</h3>
+                        <p class="text-sm text-muted-foreground mb-4">سرور مجازی با منابع تضمینی</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۶۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 6 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 12 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <!-- Turkey -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                         <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/20">پرفروش</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور سرعتی ترکیه توربو</h3>
+                        <p class="text-sm text-muted-foreground mb-4">سرور ترکیه با پینگ عالی</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۴۴۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 4 Core AMD Ryzen</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 8 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-primary text-background font-bold hover:bg-secondary transition-all shadow-lg shadow-primary/20">سفارش دهید</button>
+                    </div>
+
+                    <!-- Asiatech -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="cloud-lightning" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور ابری آسیاتک</h3>
+                        <p class="text-sm text-muted-foreground mb-4">CloudCore VPS</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۵۴۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 4 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 8 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <!-- Shatel -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="activity" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور اولترا شاتل</h3>
+                        <p class="text-sm text-muted-foreground mb-4">با پهنای باند بالا</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۷۴۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 6 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 16 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <!-- Pishgaman -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور پرقدرت پیشگامان</h3>
+                        <p class="text-sm text-muted-foreground mb-4">برای پروژه‌های سنگین</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۱,۲۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 8 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 32 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                     <!-- Germany Titan -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/20">پرفروش</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور تایتان آلمان</h3>
+                        <p class="text-sm text-muted-foreground mb-4">قدرتمند و پایدار</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۸۴۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 6 Core Intel Xeon</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 16 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-primary text-background font-bold hover:bg-secondary transition-all shadow-lg shadow-primary/20">سفارش دهید</button>
+                    </div>
+
+                    <!-- Ryzen Premium -->
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="rocket" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/20">پرفروش</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">رایزن پریمیوم بوست</h3>
+                        <p class="text-sm text-muted-foreground mb-4">هلند - نسل جدید DDR5</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۱,۴۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 8 Core Ryzen 9</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 32 GB DDR5 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-primary text-background font-bold hover:bg-secondary transition-all shadow-lg shadow-primary/20">سفارش دهید</button>
+                    </div>
+
+                     <!-- Others VPS -->
+                     <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="globe-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">اروپا</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور کلودایج اروپا</h3>
+                        <p class="text-sm text-muted-foreground mb-4">CloudEdge VPS</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۵۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 4 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 8 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="zap-off" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">ایران</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور توربو ایران</h3>
+                        <p class="text-sm text-muted-foreground mb-4">TurboCompute</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۴۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 4 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 8 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up md:col-span-2 lg:col-span-1">
+                         <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="building-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-white/10 text-white">جهانی</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سرور نووا سازمانی</h3>
+                        <p class="text-sm text-muted-foreground mb-4">Global NovaVPS Enterprise</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۳,۹۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 16 Core CPU</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 64 GB DDR4 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all">مشاهده پلن‌ها</button>
+                    </div>
+
+                     <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up relative overflow-hidden md:col-span-2 lg:col-span-1">
+                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+                         <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-primary border border-white/10">
+                                <i data-lucide="layers" class="w-6 h-6"></i>
+                            </div>
+                             <span class="text-xs font-bold px-2 py-1 rounded bg-primary/20 text-primary border border-primary/20">پرفروش</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">رایزن اولتراکور</h3>
+                        <p class="text-sm text-muted-foreground mb-4">هلند - UltraCore Edition</p>
+                        <div class="text-2xl font-bold text-primary mb-6">۲,۴۹۹,۰۰۰ <span class="text-sm text-muted-foreground font-normal">/ماه</span></div>
+                        <ul class="space-y-3 mb-8 text-sm text-muted-foreground">
+                            <li class="flex gap-2"><i data-lucide="cpu" class="w-4 h-4 text-primary"></i> 12 Core AMD Ryzen</li>
+                            <li class="flex gap-2"><i data-lucide="memory-stick" class="w-4 h-4 text-primary"></i> 64 GB DDR5 RAM</li>
+                        </ul>
+                        <button class="w-full py-3 rounded-xl bg-primary text-background font-bold hover:bg-secondary transition-all shadow-lg shadow-primary/20">سفارش دهید</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Servers -->
+            <div id="game">
+                <div class="flex items-center gap-4 mb-12 border-b border-white/10 pb-6 fade-in-up">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">سرور گیم (Game Server)</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Gaming VPS ProLine -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="joystick" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">گیمینگ پرولاین</h3>
+                        <p class="text-xs text-muted-foreground mb-4">آلمان - 8 Core AMD EPYC</p>
+                        <div class="text-xl font-bold text-primary mb-4">۸۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- Economy Game VPS Plus -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="gamepad" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">گیم اقتصادی پلاس</h3>
+                        <p class="text-xs text-muted-foreground mb-4">آلمان - 2 Core 4GB</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- GamerX LowLatency -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                         <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">گیمرایکس LowLatency</h3>
+                        <p class="text-xs text-muted-foreground mb-4">آلمان - Ryzen 6 Core</p>
+                        <div class="text-xl font-bold text-primary mb-4">۷۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                     <!-- Minecraft Prime -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                         <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="box" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">ماینکرفت پرایم</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۱۰۰ پلیر - 4 Core</p>
+                        <div class="text-xl font-bold text-primary mb-4">۲۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                    <!-- RUST Dedicated -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                         <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="hammer" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">راست فورج</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۲۰۰ پلیر - 6 Core</p>
+                        <div class="text-xl font-bold text-primary mb-4">۵۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                    <!-- MTA Reactor -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="car" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">MTA ری‌اکتور</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۵۰۰ پلیر - 4 Core</p>
+                        <div class="text-xl font-bold text-primary mb-4">۳۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- CS:GO Tactical -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="crosshair" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">CS:GO تاکتیکال</h3>
+                        <p class="text-xs text-muted-foreground mb-4">۱۲۸ Tick - مسابقه‌ای</p>
+                        <div class="text-xl font-bold text-primary mb-4">۲۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- FiveM Roleplay -->
+                     <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                         <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">FiveM رول‌پلی</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۵۰۰ پلیر - 32GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۸۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                     <!-- SAMP Ultimate -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="users-2" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">SAMP آلتیمیت</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۱۰۰۰ پلیر - 4GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- CS 1.6 Classic -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="crosshair" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">CS 1.6 کلاسیک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">۳۲ پلیر - نوستالژی</p>
+                        <div class="text-xl font-bold text-primary mb-4">۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- CS Source Elite -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="target" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">CS Source الیت</h3>
+                        <p class="text-xs text-muted-foreground mb-4">۶۴ پلیر - حرفه‌ای</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- ARK Nexus -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="dinosaur" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">ARK نکسوس</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۱۰۰ پلیر - 24GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۶۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Valheim Viking -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="axe" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">والهایم وایکینگ</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۱۰ پلیر - 8GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- GTA Online -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="car-front" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">GTA آنلاین مود</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۲۰۰ پلیر - 16GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۵۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- Minecraft Bedrock -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="blocks" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">ماینکرفت بدراک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">تا ۵۰ پلیر - 4GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- TF2 Max -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="swords" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">TF2 مکس</h3>
+                        <p class="text-xs text-muted-foreground mb-4">۳۲ پلیر - 4GB RAM</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Services -->
+             <div id="other">
+                <div class="flex items-center gap-4 mb-12 border-b border-white/10 pb-6 fade-in-up">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <i data-lucide="grid" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white">موارد دیگر</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- IP Rental -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">اجاره IP پرو</h3>
+                        <p class="text-xs text-muted-foreground mb-4">جهانی - IP اختصاصی</p>
+                        <div class="text-xl font-bold text-primary mb-4">۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                    <!-- Teamspeak Bot -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="bot" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">ربات تیم‌اسپیک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">BotX Automation</p>
+                        <div class="text-xl font-bold text-primary mb-4">۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Germany Hosting -->
+                     <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                        <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="hard-drive" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">هاست دلوکس آلمان</h3>
+                        <p class="text-xs text-muted-foreground mb-4">پرسرعت و بهینه</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                     <!-- Colocation -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="server-cog" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">کولوکیشن پرو رک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">ایران - میزبانی سخت‌افزار</p>
+                        <div class="text-xl font-bold text-primary mb-4">۹۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Teamspeak Server -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="mic" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">سرور تیم‌اسپیک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">Titan Server - پرظرفیت</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Teamspeak Reseller -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">نمایندگی تیم‌اسپیک</h3>
+                        <p class="text-xs text-muted-foreground mb-4">Reseller Plus</p>
+                        <div class="text-xl font-bold text-primary mb-4">۴۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Iran Hosting -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="hard-drive" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">هاست لینوکس ایران</h3>
+                        <p class="text-xs text-muted-foreground mb-4">پریمیوم - پرسرعت</p>
+                        <div class="text-xl font-bold text-primary mb-4">۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Firewall -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="shield" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">فایروال شیلد</h3>
+                        <p class="text-xs text-muted-foreground mb-4">محافظت کامل شبکه</p>
+                        <div class="text-xl font-bold text-primary mb-4">۱۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Cloud Backup -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="cloud" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">فضای بکاپ ابری</h3>
+                        <p class="text-xs text-muted-foreground mb-4">امن و مطمئن</p>
+                        <div class="text-xl font-bold text-primary mb-4">۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Anti DDoS -->
+                     <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group border-primary/30 shadow-[0_0_15px_rgba(255,165,0,0.1)]">
+                        <div class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded bg-primary text-background">پرفروش</div>
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">آنتی دیداس مکس</h3>
+                        <p class="text-xs text-muted-foreground mb-4">MaxGuard Protection</p>
+                        <div class="text-xl font-bold text-primary mb-4">۲۹۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-primary text-background hover:bg-secondary text-xs font-bold">مشاهده</button>
+                    </div>
+
+                     <!-- Email Hosting -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">میزبانی ایمیل پرو</h3>
+                        <p class="text-xs text-muted-foreground mb-4">ProMail - حرفه‌ای</p>
+                        <div class="text-xl font-bold text-primary mb-4">۷۹,۰۰۰ <span class="text-xs text-muted-foreground">/ماه</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+
+                     <!-- Domain -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition-all duration-300 fade-in-up group">
+                        <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-background transition-colors">
+                            <i data-lucide="globe-2" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-1">ثبت دامنه</h3>
+                        <p class="text-xs text-muted-foreground mb-4">انواع پسوندها</p>
+                        <div class="text-xl font-bold text-primary mb-4">۴۹,۰۰۰ <span class="text-xs text-muted-foreground">/سال</span></div>
+                        <button class="w-full py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white">مشاهده</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer (Same as index) -->
+    <footer class="bg-background border-t border-white/10 pt-16 pb-8 relative overflow-hidden mt-12">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary blur-[150px]"></div>
+            <div class="absolute bottom-[0%] right-[0%] w-[30%] h-[50%] rounded-full bg-secondary blur-[120px]"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 text-2xl font-bold text-primary mb-4">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                        <span class="text-white">Aria<span class="text-primary">Host</span></span>
+                    </div>
+                    <p class="text-muted-foreground leading-relaxed mb-6">
+                        ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با بالاترین کیفیت و سرعت. قدرت بی‌پایان را با آریا هاست تجربه کنید.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">دسترسی سریع</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/" class="text-muted-foreground hover:text-primary transition-colors">خانه</a></li>
+                        <li><a href="/services.html" class="text-muted-foreground hover:text-primary transition-colors">سرویس‌ها</a></li>
+                        <li><a href="/blog.html" class="text-muted-foreground hover:text-primary transition-colors">وبلاگ</a></li>
+                        <li><a href="/status.html" class="text-muted-foreground hover:text-primary transition-colors">وضعیت سرورها</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">سرویس‌ها</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/services.html#vps" class="text-muted-foreground hover:text-primary transition-colors">هاست لینوکس</a></li>
+                        <li><a href="/services.html#vps" class="text-muted-foreground hover:text-primary transition-colors">سرور مجازی (VPS)</a></li>
+                        <li><a href="/services.html#vps" class="text-muted-foreground hover:text-primary transition-colors">سرور اختصاصی</a></li>
+                        <li><a href="/services.html#other" class="text-muted-foreground hover:text-primary transition-colors">ثبت دامنه</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-6">اطلاعات تماس</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-muted-foreground">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <span>تهران، سعادت‌آباد، بلوار سرو غربی، پلاک ۱۲۳</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span dir="ltr">+98 21 1234 5678</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-muted-foreground">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>support@ariahost.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-muted-foreground text-sm">© ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
