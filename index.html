@@ -12,22 +12,14 @@
 </head>
 <body class="bg-background text-foreground font-sans antialiased">
 
-    <!-- Navbar -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
-                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
-                    <i data-lucide="server" class="text-background w-5 h-5"></i>
-                </div>
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
-                    Aria<span class="text-primary">Host</span>
-                </span>
+            <a href="/" class="flex items-center text-2xl font-bold text-primary tracking-tighter group">
+                <img src="sitelogo.png" alt="AriaHost Logo" class="h-8 w-auto"> 
             </a>
-
             <div class="hidden md:flex items-center gap-8">
                 <a href="/" class="text-sm font-medium text-primary relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
                 
-                <!-- Dropdown Menu -->
                 <div class="relative group">
                     <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
                         سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
@@ -62,7 +54,6 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10">
             <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
                 <a href="/" class="text-lg font-medium py-2 border-b border-white/5 text-primary">خانه</a>
@@ -76,11 +67,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div class="absolute inset-0 z-0">
-             <!-- Note: You'll need to update this path if the image name changes, using the same one generated earlier -->
-            <img src="/attached_assets/generated_images/abstract_orange_and_amber_glassmorphism_background.png" alt="Background" class="w-full h-full object-cover opacity-60 hero-bg transition-transform duration-100 ease-linear" />
+             <img src="/attached_assets/generated_images/abstract_orange_and_amber_glassmorphism_background.png" alt="Background" class="w-full h-full object-cover opacity-60 hero-bg transition-transform duration-100 ease-linear" />
             <div class="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background"></div>
         </div>
 
@@ -126,7 +115,6 @@
                 </div>
             </div>
 
-            <!-- 3D Element Visualization -->
             <div class="relative order-1 lg:order-2 h-[400px] lg:h-[600px] flex items-center justify-center fade-in-up">
                 <div class="glass absolute top-[20%] right-[10%] p-6 rounded-2xl w-64 z-20 border-r-4 border-r-primary float-animation">
                     <div class="flex items-center gap-3 mb-3">
@@ -164,7 +152,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="py-24 relative">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
@@ -175,7 +162,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Plan 1 -->
                 <div class="relative p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group hover:-translate-y-2 fade-in-up">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="globe" class="w-7 h-7"></i>
@@ -193,7 +179,6 @@
                     <button class="w-full h-12 rounded-xl font-bold transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10 cursor-pointer">سفارش دهید</button>
                 </div>
 
-                <!-- Plan 2 (Popular) -->
                 <div class="relative p-8 rounded-2xl border transition-all duration-300 h-full flex flex-col glass border-primary/50 shadow-[0_0_30px_rgba(255,165,0,0.15)] hover:-translate-y-2 fade-in-up" style="animation-delay: 0.1s;">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-background text-xs font-bold py-1 px-4 rounded-full uppercase tracking-wider">
                         پیشنهاد ویژه
@@ -214,7 +199,6 @@
                     <button class="w-full h-12 rounded-xl font-bold transition-all bg-primary text-background hover:bg-secondary shadow-lg hover:shadow-primary/25 cursor-pointer">سفارش دهید</button>
                 </div>
 
-                <!-- Plan 3 -->
                 <div class="relative p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group hover:-translate-y-2 fade-in-up" style="animation-delay: 0.2s;">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="database" class="w-7 h-7"></i>
@@ -235,7 +219,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-background border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
             <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary blur-[150px]"></div>
@@ -246,8 +229,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-2 text-2xl font-bold text-primary mb-4">
-                        <i data-lucide="server" class="w-6 h-6"></i>
-                        <span class="text-white">Aria<span class="text-primary">Host</span></span>
+                        <img src="sitelogo.png" alt="AriaHost Logo" class="h-6 w-auto">
                     </div>
                     <p class="text-muted-foreground leading-relaxed mb-6">
                         ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با بالاترین کیفیت و سرعت. قدرت بی‌پایان را با آریا هاست تجربه کنید.
