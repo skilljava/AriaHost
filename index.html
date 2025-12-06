@@ -1,290 +1,174 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AriaHost - هاستینگ حرفه‌ای</title>
-    
-    <base href="/AriaHost/">
-
-    <link rel="icon" type="image/png" href="favicon.png" /> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AriaHost | آریا هاست - قدرت بی پایان</title>
+    <meta name="description" content="آریا هاست، ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با سرعت و امنیت بالا.">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-background text-foreground font-sans antialiased">
+<body>
+    <div class="background-animation"></div>
 
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="/" class="flex items-center text-2xl font-bold text-primary tracking-tighter group">
-                <img src="sitelogo.png" alt="AriaHost Logo" class="h-8 w-auto"> 
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="/" class="text-sm font-medium text-primary relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
-                
-                <div class="relative group">
-                    <a href="services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
-                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
-                        <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
-                        </a>
-                        <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
-                        </a>
-                        <a href="services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
-                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
-                        </a>
-                    </div>
-                </div>
-
-                <a href="blog.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">بلاگ <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-                <a href="status.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">وضعیت سرورها <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-                <a href="faq.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">سوالات متداول <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-                <a href="contact.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
-            </div>
-
-            <div class="hidden md:block">
-                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] hover:shadow-[0_0_25px_rgba(255,165,0,0.5)] transition-all cursor-pointer">
-                    ناحیه کاربری
-                </button>
-            </div>
-
-            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
-                <i data-lucide="menu"></i>
-            </button>
+    <nav class="navbar glass">
+        <div class="logo-container">
+            <img src="logo.png" alt="AriaHost Logo" class="logo-img">
+            <div class="logo">آریا <span class="highlight">هاست</span></div>
         </div>
-
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10">
-            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
-                <a href="/" class="text-lg font-medium py-2 border-b border-white/5 text-primary">خانه</a>
-                <a href="services.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">سرویس‌ها</a>
-                <a href="blog.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">بلاگ</a>
-                <a href="status.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">وضعیت سرورها</a>
-                <a href="faq.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">سوالات متداول</a>
-                <a href="contact.html" class="text-lg font-medium py-2 border-b border-white/5 text-muted-foreground">تماس با ما</a>
-                <button class="w-full mt-2 bg-primary text-background font-bold py-3 rounded-lg">ناحیه کاربری</button>
-            </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">خانه</a></li>
+            <li class="dropdown">
+                <a href="services.html">خدمات <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu glass">
+                    <li><a href="#" onclick="filterServices('vps')"><i class="fas fa-server"></i> سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')"><i class="fas fa-gamepad"></i> سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('web')"><i class="fas fa-globe"></i> هاست وب</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')"><i class="fas fa-hdd"></i> سرور اختصاصی</a></li>
+                    <li><a href="#" onclick="filterServices('other')"><i class="fas fa-ellipsis-h"></i> موارد دیگر</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="status.html">وضعیت سرورها</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary glow-effect">شروع کنید</a>
     </nav>
 
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="attached_assets/generated_images/abstract_orange_and_amber_glassmorphism_background.png" alt="Background" class="w-full h-full object-cover opacity-60 hero-bg transition-transform duration-100 ease-linear" />
-            <div class="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background"></div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="text-right order-2 lg:order-1 fade-in-up">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    نسل جدید میزبانی وب
-                </div>
-                <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                    سرعت <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">توقف‌ناپذیر</span>،<br />
-                    قدرت <span class="text-white">بی‌پایان</span>
-                </h1>
-                <p class="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-                    با زیرساخت‌های قدرتمند آریا هاست، وب‌سایت خود را به سطحی بالاتر ببرید.
-                    تجربه سرعت بالا، امنیت تضمین شده و پشتیبانی ۲۴ ساعته.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-end lg:justify-start">
-                    <a href="contact.html" class="px-8 h-14 flex items-center justify-center rounded-xl border border-white/20 hover:bg-white/10 text-white text-lg transition-all">
-                        مشاوره رایگان
-                    </a>
-                    <a href="services.html" class="px-8 h-14 flex items-center justify-center rounded-xl bg-primary text-background hover:bg-secondary text-lg font-bold shadow-[0_0_20px_rgba(255,165,0,0.4)] hover:shadow-[0_0_30px_rgba(255,165,0,0.6)] transition-all">
-                        شروع کنید <i data-lucide="chevron-left" class="mr-2 w-5 h-5"></i>
-                    </a>
-                </div>
-                
-                <div class="grid grid-cols-3 gap-6 mt-12 border-t border-white/10 pt-8">
-                    <div class="text-center lg:text-right">
-                        <h3 class="text-3xl font-bold text-white mb-1">۹۹.۹٪</h3>
-                        <p class="text-sm text-muted-foreground">آپتایم تضمین شده</p>
-                    </div>
-                    <div class="text-center lg:text-right">
-                        <h3 class="text-3xl font-bold text-white mb-1">۲۴/۷</h3>
-                        <p class="text-sm text-muted-foreground">پشتیبانی فنی</p>
-                    </div>
-                    <div class="text-center lg:text-right">
-                        <h3 class="text-3xl font-bold text-white mb-1">+۱۰k</h3>
-                        <p class="text-sm text-muted-foreground">مشتری راضی</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative order-1 lg:order-2 h-[400px] lg:h-[600px] flex items-center justify-center fade-in-up">
-                <div class="glass absolute top-[20%] right-[10%] p-6 rounded-2xl w-64 z-20 border-r-4 border-r-primary float-animation">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
-                            <i data-lucide="zap"></i>
+    <main id="content">
+        <!-- Home Page -->
+        <section id="home" class="page">
+            <header class="hero">
+                <div class="hero-content fade-in-up">
+                    <h1 class="hero-title">
+                        سرعت توقف‌ناپذیر، 
+                        <span class="text-gradient">قدرت نامحدود</span>
+                        <span class="floating-emoji">🚀</span>
+                    </h1>
+                    
+                    <div class="hero-badges">
+                        <div class="hero-badge glass float-animation-1">
+                            <i class="fas fa-wifi"></i>
+                            <span>پینگ: ۱۲ms</span>
                         </div>
-                        <div>
-                            <div class="text-sm text-muted-foreground">سرعت پاسخگویی</div>
-                            <div class="text-xl font-bold text-white">24ms</div>
+                        <div class="hero-badge glass float-animation-2">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>امنیت: بالا</span>
+                        </div>
+                        <div class="hero-badge glass float-animation-3">
+                            <i class="fas fa-clock"></i>
+                            <span>آپتایم: ۹۹.۹٪</span>
                         </div>
                     </div>
-                    <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                        <div class="bg-primary h-full w-[90%]"></div>
+
+                    <p class="hero-subtitle">میزبانی وب، سرورهای مجازی و اختصاصی با بالاترین کیفیت و پشتیبانی ۲۴/۷. تجربه ای متفاوت از سرعت و پایداری.</p>
+                    <div class="hero-buttons">
+                        <a href="services.html" class="btn btn-primary glow-effect">مشاهده سرویس‌ها <i class="fas fa-arrow-left"></i></a>
+                        <a href="contact.html" class="btn btn-outline">مشاوره رایگان</a>
                     </div>
                 </div>
-
-                <div class="glass absolute bottom-[20%] left-[10%] p-6 rounded-2xl w-64 z-10 border-l-4 border-l-secondary float-animation-delayed">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary">
-                            <i data-lucide="shield"></i>
+                <div class="hero-visual fade-in-left">
+                    <div class="server-cube-container">
+                        <div class="server-cube">
+                            <div class="cube"></div>
                         </div>
-                        <div>
-                            <div class="text-sm text-muted-foreground">امنیت شبکه</div>
-                            <div class="text-xl font-bold text-white">محافظت شده</div>
-                        </div>
-                    </div>
-                    <div class="text-xs text-green-400 flex items-center gap-1">
-                        <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                        فعال و ایمن
+                        <div class="orbital-ring"></div>
                     </div>
                 </div>
-                
-                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-[100px] rounded-full pulse-glow"></div>
+            </header>
+
+            <section class="popular-products glass-panel fade-in-section">
+                <h2 class="section-title-small">محصولات پرطرفدار <i class="fas fa-fire text-orange"></i></h2>
+                <div class="products-grid-mini">
+                    <!-- Injected via JS -->
+                </div>
+            </section>
+
+            <section class="features fade-in-section">
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سرعت نور</h3>
+                    <p>استفاده از درایوهای NVMe نسل ۴ و رم‌های DDR5 برای نهایت سرعت پردازش.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>امنیت آهنین</h3>
+                    <p>فایروال‌های سخت‌افزاری و آنتی‌دیداس لایه ۷ اختصاصی برای امنیت کامل.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>پشتیبانی متخصص</h3>
+                    <p>تیم فنی ما فقط اپراتور نیستند، متخصصین شبکه هستند که مشکل شما را حل می‌کنند.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>لوکیشن‌های متنوع</h3>
+                    <p>سرورهایی در بهترین دیتاسنترهای ایران، آلمان، فنلاند و فرانسه.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>آریا هاست</h3>
+                <p>ارائه دهنده برترین خدمات میزبانی وب و سرور با کیفیت جهانی. ما متعهد به کیفیت و پایداری سرویس شما هستیم.</p>
+                <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="services.html">سرویس‌ها</a></li>
+                    <li><a href="blog.html">وبلاگ</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+             <div class="footer-section">
+                <h3>سرویس‌ها</h3>
+                <ul>
+                    <li><a href="#" onclick="filterServices('vps')">سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')">سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')">سرور اختصاصی</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خبرنامه</h3>
+                <p>برای دریافت کدهای تخفیف و اخبار جدید عضو شوید.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
-    </section>
-
-    <section class="py-24 relative">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                <h2 class="text-4xl font-bold text-white mb-4">پلن‌های <span class="text-primary">میزبانی وب</span></h2>
-                <p class="text-muted-foreground text-lg">
-                    انتخابی هوشمندانه برای هر نیاز. از سایت‌های شخصی تا سازمان‌های بزرگ.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group hover:-translate-y-2 fade-in-up">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="globe" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">هاست اشتراکی</h3>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-3xl font-bold text-primary">۹۹,۰۰۰</span>
-                        <span class="text-muted-foreground text-sm">/ ماهانه</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۱۰ گیگابایت فضا NVMe</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> پهنای باند نامحدود</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> دامنه رایگان .ir</li>
-                    </ul>
-                    <button class="w-full h-12 rounded-xl font-bold transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10 cursor-pointer">سفارش دهید</button>
-                </div>
-
-                <div class="relative p-8 rounded-2xl border transition-all duration-300 h-full flex flex-col glass border-primary/50 shadow-[0_0_30px_rgba(255,165,0,0.15)] hover:-translate-y-2 fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-background text-xs font-bold py-1 px-4 rounded-full uppercase tracking-wider">
-                        پیشنهاد ویژه
-                    </div>
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="server" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">سرور مجازی (VPS)</h3>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-3xl font-bold text-primary">۴۵۰,۰۰۰</span>
-                        <span class="text-muted-foreground text-sm">/ ماهانه</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۴ هسته پردازنده</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۸ گیگابایت رم</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۱۰۰ گیگابایت فضا NVMe</li>
-                    </ul>
-                    <button class="w-full h-12 rounded-xl font-bold transition-all bg-primary text-background hover:bg-secondary shadow-lg hover:shadow-primary/25 cursor-pointer">سفارش دهید</button>
-                </div>
-
-                <div class="relative p-8 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col group hover:-translate-y-2 fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="database" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">سرور اختصاصی</h3>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-3xl font-bold text-primary">۳,۵۰۰,۰۰۰</span>
-                        <span class="text-muted-foreground text-sm">/ ماهانه</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> پردازنده Intel Xeon</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۶۴ گیگابایت رم</li>
-                        <li class="flex items-center gap-3 text-sm text-muted-foreground"><div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-primary"></i></div> ۲ ترابایت فضا SSD</li>
-                    </ul>
-                    <button class="w-full h-12 rounded-xl font-bold transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10 cursor-pointer">سفارش دهید</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-background border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary blur-[150px]"></div>
-            <div class="absolute bottom-[0%] right-[0%] w-[30%] h-[50%] rounded-full bg-secondary blur-[120px]"></div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-2 text-2xl font-bold text-primary mb-4">
-                        <img src="sitelogo.png" alt="AriaHost Logo" class="h-6 w-auto">
-                    </div>
-                    <p class="text-muted-foreground leading-relaxed mb-6">
-                        ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با بالاترین کیفیت و سرعت. قدرت بی‌پایان را با آریا هاست تجربه کنید.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-background transition-all"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-6">دسترسی سریع</h3>
-                    <ul class="space-y-3">
-                        <li><a href="/" class="text-muted-foreground hover:text-primary transition-colors">خانه</a></li>
-                        <li><a href="services.html" class="text-muted-foreground hover:text-primary transition-colors">سرویس‌ها</a></li>
-                        <li><a href="blog.html" class="text-muted-foreground hover:text-primary transition-colors">وبلاگ</a></li>
-                        <li><a href="status.html" class="text-muted-foreground hover:text-primary transition-colors">وضعیت سرورها</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-6">سرویس‌ها</h3>
-                    <ul class="space-y-3">
-                        <li><a href="services.html" class="text-muted-foreground hover:text-primary transition-colors">هاست لینوکس</a></li>
-                        <li><a href="services.html" class="text-muted-foreground hover:text-primary transition-colors">سرور مجازی (VPS)</a></li>
-                        <li><a href="services.html" class="text-muted-foreground hover:text-primary transition-colors">سرور اختصاصی</a></li>
-                        <li><a href="services.html" class="text-muted-foreground hover:text-primary transition-colors">ثبت دامنه</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-6">اطلاعات تماس</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-muted-foreground">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
-                            <span>تهران، سعادت‌آباد، بلوار سرو غربی، پلاک ۱۲۳</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-muted-foreground">
-                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0"></i>
-                            <span dir="ltr">+98 21 1234 5678</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-muted-foreground">
-                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0"></i>
-                            <span>support@ariahost.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-muted-foreground text-sm">© ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است.</p>
-            </div>
+        <div class="copyright">
+            &copy; ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است. طراحی شده با ❤️ و ☕
         </div>
     </footer>
 
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
