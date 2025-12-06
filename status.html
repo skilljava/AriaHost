@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>وضعیت سرورها - AriaHost</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-transparent">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary tracking-tighter group">
+                <div class="relative w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary group-hover:shadow-[0_0_20px_rgba(255,165,0,0.5)] transition-all">
+                    <i data-lucide="server" class="text-background w-5 h-5"></i>
+                </div>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 group-hover:text-primary transition-colors">
+                    Aria<span class="text-primary">Host</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">خانه <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="/services.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 py-4">
+                        سرویس‌ها <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full right-0 w-56 bg-background/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 flex flex-col gap-1">
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="server" class="w-4 h-4"></i> سرور مجازی
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="gamepad-2" class="w-4 h-4"></i> سرور گیم
+                        </a>
+                        <a href="/services.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors text-sm text-muted-foreground">
+                            <i data-lucide="grid" class="w-4 h-4"></i> موارد دیگر
+                        </a>
+                    </div>
+                </div>
+
+                <a href="/status.html" class="text-sm font-medium text-primary relative group">وضعیت سرورها <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform"></span></a>
+                <a href="/contact.html" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group">تماس با ما <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100"></span></a>
+            </div>
+            <div class="hidden md:block">
+                <button class="bg-primary text-background hover:bg-secondary font-bold py-2 px-4 rounded-lg shadow-[0_0_15px_rgba(255,165,0,0.3)] transition-all cursor-pointer">ناحیه کاربری</button>
+            </div>
+            <button id="menu-btn" class="md:hidden text-foreground hover:text-primary transition-colors cursor-pointer">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="relative py-32 min-h-screen">
+        <div class="absolute inset-0 z-0">
+            <img src="/attached_assets/generated_images/server_room_abstract_visualization.png" alt="Background" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-background/90"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 mb-6">
+                    <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                    همه سیستم‌ها فعال هستند
+                </div>
+                <h1 class="text-5xl font-bold text-white mb-6">وضعیت <span class="text-primary">سرورها</span></h1>
+                <p class="text-xl text-muted-foreground">
+                    پایش لحظه‌ای وضعیت شبکه و سرویس‌های آریا هاست
+                </p>
+             </div>
+
+             <div class="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm fade-in-up" style="animation-delay: 0.2s">
+                 <div class="p-6 border-b border-white/10 grid grid-cols-12 gap-4 text-sm font-medium text-muted-foreground">
+                    <div class="col-span-6 md:col-span-5">نام سرویس</div>
+                    <div class="col-span-3 md:col-span-3 text-center">وضعیت</div>
+                    <div class="col-span-3 md:col-span-4 text-left">آپتایم (۳۰ روز)</div>
+                 </div>
+                 <div class="divide-y divide-white/5">
+                    <!-- Item 1 -->
+                    <div class="p-6 grid grid-cols-12 gap-4 items-center hover:bg-white/5 transition-colors">
+                        <div class="col-span-6 md:col-span-5 font-medium text-white flex items-center gap-3">
+                            <i data-lucide="server" class="w-5 h-5 text-muted-foreground"></i>
+                            سرور ایران - تهران ۱
+                        </div>
+                        <div class="col-span-3 md:col-span-3 flex justify-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border text-green-400 bg-green-400/10 border-green-400/20">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                                <span class="hidden md:inline">فعال</span>
+                            </span>
+                        </div>
+                        <div class="col-span-3 md:col-span-4 text-left text-green-400 font-mono">100%</div>
+                    </div>
+                    <!-- Item 2 -->
+                     <div class="p-6 grid grid-cols-12 gap-4 items-center hover:bg-white/5 transition-colors">
+                        <div class="col-span-6 md:col-span-5 font-medium text-white flex items-center gap-3">
+                            <i data-lucide="server" class="w-5 h-5 text-muted-foreground"></i>
+                            سرور هلند - آمستردام
+                        </div>
+                        <div class="col-span-3 md:col-span-3 flex justify-center">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold border text-yellow-400 bg-yellow-400/10 border-yellow-400/20">
+                                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                <span class="hidden md:inline">در حال تعمیر</span>
+                            </span>
+                        </div>
+                        <div class="col-span-3 md:col-span-4 text-left text-green-400 font-mono">98.50%</div>
+                    </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
