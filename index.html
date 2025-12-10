@@ -8,174 +8,180 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه اصلی | آریا هاست</title>
-    <meta name="description" content="آریا هاست، ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با سرعت و امنیت بالا.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی | آریا هاست</title>
+    <meta name="description" content="آریا هاست، ارائه دهنده خدمات میزبانی وب، سرور مجازی و اختصاصی با سرعت و امنیت بالا.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="background-animation"></div>
+        <div id="loading-screen">
+        <div class="cube-loader">
+            <div class="cube-1"></div>
+            <div class="cube-2"></div>
+        </div>
+        <p class="loading-text">در حال بارگذاری</p>
+        <div class="progress-bar"></div>
+    </div>
+        <div class="background-animation"></div>
 
-    <nav class="navbar glass">
-        <div class="logo-container">
-            <img src="logo.png" alt="AriaHost Logo" class="logo-img">
-            <div class="logo">آریا <span class="highlight">هاست</span></div>
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">خانه</a></li>
-            <li class="dropdown">
-                <a href="services.html">خدمات <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu glass">
-                    <li><a href="#" onclick="filterServices('vps')"><i class="fas fa-server"></i> سرور مجازی</a></li>
-                    <li><a href="#" onclick="filterServices('game')"><i class="fas fa-gamepad"></i> سرور گیم</a></li>
-                    <li><a href="#" onclick="filterServices('web')"><i class="fas fa-globe"></i> هاست وب</a></li>
-                    <li><a href="#" onclick="filterServices('dedicated')"><i class="fas fa-hdd"></i> سرور اختصاصی</a></li>
-                    <li><a href="#" onclick="filterServices('other')"><i class="fas fa-ellipsis-h"></i> موارد دیگر</a></li>
-                </ul>
-            </li>
-            <li><a href="blog.html">وبلاگ</a></li>
-            <li><a href="status.html">وضعیت سرورها</a></li>
-            <li><a href="faq.html">سوالات متداول</a></li>
-            <li><a href="contact.html">تماس با ما</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary glow-effect">شروع کنید</a>
-    </nav>
+    <nav class="navbar glass">
+        <div class="logo-container">
+            <img src="logo.png" alt="AriaHost Logo" class="logo-img">
+            <div class="logo">آریا <span class="highlight">هاست</span></div>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">خانه</a></li>
+            <li class="dropdown">
+                <a href="services.html">خدمات <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu glass">
+                    <li><a href="#" onclick="filterServices('vps')"><i class="fas fa-server"></i> سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')"><i class="fas fa-gamepad"></i> سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('web')"><i class="fas fa-globe"></i> هاست وب</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')"><i class="fas fa-hdd"></i> سرور اختصاصی</a></li>
+                    <li><a href="#" onclick="filterServices('other')"><i class="fas fa-ellipsis-h"></i> موارد دیگر</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">وبلاگ</a></li>
+            <li><a href="status.html">وضعیت سرورها</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary glow-effect">شروع کنید</a>
+    </nav>
 
-    <main id="content">
-        <!-- Home Page -->
-        <section id="home" class="page">
-            <header class="hero">
-                <div class="hero-content fade-in-up">
-                    <h1 class="hero-title">
-                        سرعت توقف‌ناپذیر، 
-                        <span class="text-gradient">قدرت نامحدود</span>
-                        <span class="floating-emoji">🚀</span>
-                    </h1>
-                    
-                    <div class="hero-badges">
-                        <div class="hero-badge glass float-animation-1">
-                            <i class="fas fa-wifi"></i>
-                            <span>پینگ: ۱۲ms</span>
-                        </div>
-                        <div class="hero-badge glass float-animation-2">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>امنیت: بالا</span>
-                        </div>
-                        <div class="hero-badge glass float-animation-3">
-                            <i class="fas fa-clock"></i>
-                            <span>آپتایم: ۹۹.۹٪</span>
-                        </div>
-                    </div>
+    <main id="content">
+                <section id="home" class="page">
+            <header class="hero">
+                <div class="hero-content fade-in-up">
+                    <h1 class="hero-title">
+                        سرعت توقف‌ناپذیر، 
+                        <span class="text-gradient">قدرت نامحدود</span>
+                        <span class="floating-emoji">🚀</span>
+                    </h1>
+                    
+                    <div class="hero-badges">
+                        <div class="hero-badge glass float-animation-1">
+                            <i class="fas fa-wifi"></i>
+                            <span>پینگ: ۱۲ms</span>
+                        </div>
+                        <div class="hero-badge glass float-animation-2">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>امنیت: بالا</span>
+                        </div>
+                        <div class="hero-badge glass float-animation-3">
+                            <i class="fas fa-clock"></i>
+                            <span>آپتایم: ۹۹.۹٪</span>
+                        </div>
+                    </div>
 
-                    <p class="hero-subtitle">میزبانی وب، سرورهای مجازی و اختصاصی با بالاترین کیفیت و پشتیبانی ۲۴/۷. تجربه ای متفاوت از سرعت و پایداری.</p>
-                    <div class="hero-buttons">
-                        <a href="services.html" class="btn btn-primary glow-effect">مشاهده سرویس‌ها <i class="fas fa-arrow-left"></i></a>
-                        <a href="contact.html" class="btn btn-outline">مشاوره رایگان</a>
-                    </div>
-                </div>
-                <div class="hero-visual fade-in-left">
-                    <div class="server-cube-container">
-                        <div class="server-cube">
-                            <div class="cube"></div>
-                        </div>
-                        <div class="orbital-ring"></div>
-                    </div>
-                </div>
-            </header>
+                    <p class="hero-subtitle">میزبانی وب، سرورهای مجازی و اختصاصی با بالاترین کیفیت و پشتیبانی ۲۴/۷. تجربه ای متفاوت از سرعت و پایداری.</p>
+                    <div class="hero-buttons">
+                        <a href="services.html" class="btn btn-primary glow-effect">مشاهده سرویس‌ها <i class="fas fa-arrow-left"></i></a>
+                        <a href="contact.html" class="btn btn-outline">مشاوره رایگان</a>
+                    </div>
+                </div>
+                <div class="hero-visual fade-in-left">
+                    <div class="server-cube-container">
+                        <div class="server-cube">
+                            <div class="cube"></div>
+                        </div>
+                        <div class="orbital-ring"></div>
+                    </div>
+                </div>
+            </header>
 
-            <section class="popular-products glass-panel fade-in-section">
-                <h2 class="section-title-small">محصولات پرطرفدار <i class="fas fa-fire text-orange"></i></h2>
-                <div class="products-grid-mini">
-                    <!-- Injected via JS -->
-                </div>
-            </section>
+            <section class="popular-products glass-panel fade-in-section">
+                <h2 class="section-title-small">محصولات پرطرفدار <i class="fas fa-fire text-orange"></i></h2>
+                <div class="products-grid-mini">
+                                    </div>
+            </section>
 
-            <section class="features fade-in-section">
-                <div class="feature-card glass tilt-effect">
-                    <div class="feature-icon-wrapper">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>سرعت نور</h3>
-                    <p>استفاده از درایوهای NVMe نسل ۴ و رم‌های DDR5 برای نهایت سرعت پردازش.</p>
-                </div>
-                <div class="feature-card glass tilt-effect">
-                    <div class="feature-icon-wrapper">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>امنیت آهنین</h3>
-                    <p>فایروال‌های سخت‌افزاری و آنتی‌دیداس لایه ۷ اختصاصی برای امنیت کامل.</p>
-                </div>
-                <div class="feature-card glass tilt-effect">
-                    <div class="feature-icon-wrapper">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>پشتیبانی متخصص</h3>
-                    <p>تیم فنی ما فقط اپراتور نیستند، متخصصین شبکه هستند که مشکل شما را حل می‌کنند.</p>
-                </div>
-                <div class="feature-card glass tilt-effect">
-                    <div class="feature-icon-wrapper">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>لوکیشن‌های متنوع</h3>
-                    <p>سرورهایی در بهترین دیتاسنترهای ایران، آلمان، فنلاند و فرانسه.</p>
-                </div>
-            </section>
-        </section>
-    </main>
+            <section class="features fade-in-section">
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سرعت نور</h3>
+                    <p>استفاده از درایوهای NVMe نسل ۴ و رم‌های DDR5 برای نهایت سرعت پردازش.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>امنیت آهنین</h3>
+                    <p>فایروال‌های سخت‌افزاری و آنتی‌دیداس لایه ۷ اختصاصی برای امنیت کامل.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>پشتیبانی متخصص</h3>
+                    <p>تیم فنی ما فقط اپراتور نیستند، متخصصین شبکه هستند که مشکل شما را حل می‌کنند.</p>
+                </div>
+                <div class="feature-card glass tilt-effect">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>لوکیشن‌های متنوع</h3>
+                    <p>سرورهایی در بهترین دیتاسنترهای ایران، آلمان، فنلاند و فرانسه.</p>
+                </div>
+            </section>
+        </section>
+    </main>
 
-    <footer class="glass">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>آریا هاست</h3>
-                <p>ارائه دهنده برترین خدمات میزبانی وب و سرور با کیفیت جهانی. ما متعهد به کیفیت و پایداری سرویس شما هستیم.</p>
-                <div class="social-links-footer">
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>دسترسی سریع</h3>
-                <ul>
-                    <li><a href="index.html">خانه</a></li>
-                    <li><a href="services.html">سرویس‌ها</a></li>
-                    <li><a href="blog.html">وبلاگ</a></li>
-                    <li><a href="contact.html">تماس با ما</a></li>
-                </ul>
-            </div>
-             <div class="footer-section">
-                <h3>سرویس‌ها</h3>
-                <ul>
-                    <li><a href="#" onclick="filterServices('vps')">سرور مجازی</a></li>
-                    <li><a href="#" onclick="filterServices('game')">سرور گیم</a></li>
-                    <li><a href="#" onclick="filterServices('dedicated')">سرور اختصاصی</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>خبرنامه</h3>
-                <p>برای دریافت کدهای تخفیف و اخبار جدید عضو شوید.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="ایمیل خود را وارد کنید">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است. طراحی شده با ❤️ و ☕
-        </div>
-    </footer>
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>آریا هاست</h3>
+                <p>ارائه دهنده برترین خدمات میزبانی وب و سرور با کیفیت جهانی. ما متعهد به کیفیت و پایداری سرویس شما هستیم.</p>
+                <div class="social-links-footer">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="services.html">سرویس‌ها</a></li>
+                    <li><a href="blog.html">وبلاگ</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+             <div class="footer-section">
+                <h3>سرویس‌ها</h3>
+                <ul>
+                    <li><a href="#" onclick="filterServices('vps')">سرور مجازی</a></li>
+                    <li><a href="#" onclick="filterServices('game')">سرور گیم</a></li>
+                    <li><a href="#" onclick="filterServices('dedicated')">سرور اختصاصی</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خبرنامه</h3>
+                <p>برای دریافت کدهای تخفیف و اخبار جدید عضو شوید.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; ۲۰۲۵ آریا هاست. تمامی حقوق محفوظ است. طراحی شده با ❤️ و ☕
+        </div>
+    </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
